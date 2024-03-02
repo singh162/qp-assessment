@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "outDir": "./dist", // Specify your output directory
+    "rootDir": "./src", // Specify your source directory
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts"
+, "src/validation/vehicle-validation.ts"  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
