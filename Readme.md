@@ -1,6 +1,6 @@
 # Qa-assigment - TypeScript and MySQL CRUD Application
 
-Qa-assigment is a TypeScript and MySQL CRUD application for managing vehicle information, owners, ownership, maintenance, and insurance.
+Qa-assigment is a TypeScript and MySQL CRUD application.
 
 ## Getting Started
 
