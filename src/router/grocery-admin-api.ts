@@ -2,8 +2,16 @@
 import Express from "express";
 const app = Express.Router();
 import mysql from 'mysql2/promise';
+const isDocker = process.env.DOCKER === 'true'; // Set this environment variable in your Docker environment
+
+let host = 'localhost'; // Default host for non-Docker environment
+
+if (isDocker) {
+  // Set the host to the service name defined in Docker Compose
+  host = 'database'; // Update this to match the service name in your Docker Compose file
+}
 const connectionConfig = {
-    host: 'localhost',
+    host: "database",
     port: 3306,
     user: 'root',
     password: 'P@ssw0rd',

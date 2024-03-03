@@ -87,12 +87,12 @@ async function connectToDatabase(): Promise<Connection> {
 async function createUserAndGrantPrivileges(db: Connection, username: string, password: string) {
   // Create user if not exists
   const [userRows] = await db.query<OkPacket>(
-    `CREATE USER IF NOT EXISTS '${username}'@'localhost' IDENTIFIED BY '${password}'`
+    `CREATE USER IF NOT EXISTS '${username}'@'${host}' IDENTIFIED BY '${password}'`
   );
 
   // Grant all privileges to the user on the questionPro database
   await db.query<OkPacket>(
-    `GRANT ALL PRIVILEGES ON questionPro.* TO '${username}'@'localhost'`
+    `GRANT ALL PRIVILEGES ON questionPro.* TO '${username}'@'${host}'`
   );
 
   console.log(`User '${username}' created and privileges granted successfully`);

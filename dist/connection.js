@@ -87,9 +87,9 @@ function connectToDatabase() {
 function createUserAndGrantPrivileges(db, username, password) {
     return __awaiter(this, void 0, void 0, function* () {
         // Create user if not exists
-        const [userRows] = yield db.query(`CREATE USER IF NOT EXISTS '${username}'@'localhost' IDENTIFIED BY '${password}'`);
+        const [userRows] = yield db.query(`CREATE USER IF NOT EXISTS '${username}'@'${host}' IDENTIFIED BY '${password}'`);
         // Grant all privileges to the user on the questionPro database
-        yield db.query(`GRANT ALL PRIVILEGES ON questionPro.* TO '${username}'@'localhost'`);
+        yield db.query(`GRANT ALL PRIVILEGES ON questionPro.* TO '${username}'@'${host}'`);
         console.log(`User '${username}' created and privileges granted successfully`);
     });
 }
