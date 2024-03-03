@@ -16,7 +16,7 @@ mysql.createConnection(connectionConfig).then(result => {
 });
 
 // Endpoint to view available grocery items
-app.get('/user/groceries', async (req, res) => {
+app.get('/groceries', async (req, res) => {
     try {
         const [groceriesResult] = await (global as any).connection.query('SELECT * FROM groceries');
         res.json({
@@ -29,7 +29,7 @@ app.get('/user/groceries', async (req, res) => {
     }
 });
 // Endpoint to place an order
-app.post('/user/order', async (req, res) => {
+app.post('/order', async (req, res) => {
     const { items } = req.body;
 
     try {

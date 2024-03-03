@@ -28,7 +28,7 @@ promise_1.default.createConnection(connectionConfig).then(result => {
     global.connection = result;
 });
 // Endpoint to view available grocery items
-app.get('/user/groceries', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/groceries', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const [groceriesResult] = yield global.connection.query('SELECT * FROM groceries');
         res.json({
@@ -42,7 +42,7 @@ app.get('/user/groceries', (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 }));
 // Endpoint to place an order
-app.post('/user/order', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/order', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { items } = req.body;
     try {
         if (!items || !Array.isArray(items) || items.length === 0) {
