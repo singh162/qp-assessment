@@ -11,7 +11,7 @@ if (isDocker) {
   host = 'database'; // Update this to match the service name in your Docker Compose file
 }
 const connectionConfig = {
-    host: "database",
+    host: host,
     port: 3306,
     user: 'root',
     password: 'P@ssw0rd',
