@@ -1,9 +1,17 @@
 import mysql, { Connection, OkPacket } from 'mysql2/promise'; // Import from 'mysql2/promise' for Promise-based API
 
+const isDocker = process.env.DOCKER === 'true'; // Set this environment variable in your Docker environment
+
+let host = 'localhost'; // Default host for non-Docker environment
+
+if (isDocker) {
+  // Set the host to the service name defined in Docker Compose
+  host = 'database'; // Update this to match the service name in your Docker Compose file
+}
 // Database connection configuration
 async function connectToDatabase(): Promise<Connection> {
   const db: Connection = await mysql.createConnection({
-    host: 'database', // Use the service name defined in Docker Compose
+    host: host, // Use the service name defined in Docker Compose
     port: 3306,
     user: 'root',
     password: 'P@ssw0rd',

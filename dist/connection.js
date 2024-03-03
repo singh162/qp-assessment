@@ -13,11 +13,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const promise_1 = __importDefault(require("mysql2/promise")); // Import from 'mysql2/promise' for Promise-based API
+const isDocker = process.env.DOCKER === 'true'; // Set this environment variable in your Docker environment
+let host = 'localhost'; // Default host for non-Docker environment
+if (isDocker) {
+    // Set the host to the service name defined in Docker Compose
+    host = 'database'; // Update this to match the service name in your Docker Compose file
+}
 // Database connection configuration
 function connectToDatabase() {
     return __awaiter(this, void 0, void 0, function* () {
         const db = yield promise_1.default.createConnection({
-            host: 'database', // Use the service name defined in Docker Compose
+            host: host, // Use the service name defined in Docker Compose
             port: 3306,
             user: 'root',
             password: 'P@ssw0rd',
