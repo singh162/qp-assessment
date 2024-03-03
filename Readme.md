@@ -24,7 +24,7 @@ tsc
 
 ## Run the application:
 
-if you are in Antier folder
+if you are in questionPro folder
 1. cd dist
 if you are in src folder 
 1. cd ..
@@ -43,8 +43,17 @@ Create the user in the mysql
 3. EXIT
 
 
-The application creates a database named 'antier' and tables for vehicles, owners, ownership, maintenance, and insurance.
+The application creates a database named 'questionPro'.
 
+## DOCKER
+ install docker app
+
+ create the docker image 
+ docker build -t qa-assessment .
+
+to run the docker
+
+docker-compose up
 
 ## API Documentation
 Retrieve All Groceries
